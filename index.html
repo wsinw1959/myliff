@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<head>
+  <title>กำลังเข้าสู่ Form</title>
+  <style>
+    .centerScreen {
+      margin-top: 20;
+      margin-right: auto;
+      margin-bottom: 20;
+      margin-left: auto;
+    }
+  </style>
+</head>
+
+<body style="background-color: powderblue;">
+  <div class="centerScreen">
+    <center>
+      <img src="https://drive.google.com/uc?id=1mEyShWSX9rPf4klIDeMTlHAOc4BsySFK" height="200px" , width="200px" />
+      <h1>
+        กำลังเข้าสู่ Google Form กรุณารอสักครู่
+      </h1>
+    </center>
+  </div>
+</body>
+<footer>
+  <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
+  <script>
+
+    const liffId = "1657358061-Kw51lan9";
+
+    liff.ready
+      .then(() => {
+        if (liff.isLoggedIn()) {
+          return liff.getProfile();
+        } else {
+          liff.login({
+            redirectUri: "xxxxxxxxx",
+          });
+        }
+      })
+      .then((profile) => {
+        window.location.replace(
+          `https://docs.google.com/forms/d/e/1FAIpQLScKTKj-Ksp1fcmyzkpiGVghLobLyZr0Z-G4CFzVdhwHYgmBrw/viewform?usp=pp_url&entry.1713538004=${profile.userId}&entry.2014991866=${profile.displayName}&entry.1678155915=${profile.pictureUrl}&entry.475761465=${profile.statusMessage}`
+        );
+      });
+
+ 
+    liff.init(
+      {
+        liffId: liffId,
+      },
+      () => {},
+      (err) => {
+        window.alert(err);
+      }
+    );
+  </script>
+</footer>
+
